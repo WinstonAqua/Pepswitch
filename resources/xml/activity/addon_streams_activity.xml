@@ -1,0 +1,38 @@
+<brls:AppletFrame
+        title="Streams"
+        iconInterpolation="linear"
+        headerHidden="false"
+        footerHidden="false">
+    <brls:Box
+            axis="column"
+            width="100%"
+            height="100%">
+
+        <brls:Box
+                paddingLeft="20"
+                paddingRight="20"
+                paddingTop="10"
+                paddingBottom="10"
+                axis="column">
+            <brls:Label
+                    id="addon/streams/title"
+                    fontSize="22" />
+            <brls:Label
+                    id="addon/streams/subtitle"
+                    fontSize="14"
+                    textColor="@theme/font/grey"
+                    marginTop="2" />
+        </brls:Box>
+
+        <RecyclingGrid
+                id="addon/streams/grid"
+                paddingLeft="20"
+                paddingRight="20"
+                grow="1"
+                spanCount="1"
+                itemHeight="100"
+                wireframe="false"
+                preFetchLine="2" />
+
+    </brls:Box>
+</brls:AppletFrame>

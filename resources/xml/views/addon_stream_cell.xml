@@ -1,0 +1,44 @@
+<brls:Box
+        wireframe="false"
+        highlightCornerRadius="8"
+        cornerRadius="8"
+        backgroundColor="@theme/color/grey_1"
+        padding="14"
+        width="auto"
+        height="auto"
+        axis="row">
+
+    <brls:Box
+            id="addon/stream/quality_box"
+            width="80"
+            height="auto"
+            cornerRadius="4"
+            backgroundColor="@theme/color/grey_2"
+            marginRight="14"
+            justifyContent="center"
+            alignItems="center">
+        <brls:Label
+                id="addon/stream/quality"
+                fontSize="18"
+                text="—" />
+    </brls:Box>
+
+    <brls:Box
+            axis="column"
+            grow="1">
+        <brls:Label
+                id="addon/stream/title"
+                fontSize="18"
+                marginBottom="4" />
+        <brls:Label
+                id="addon/stream/source"
+                fontSize="14"
+                textColor="@theme/font/grey" />
+    </brls:Box>
+
+    <brls:Label
+            id="addon/stream/badge"
+            fontSize="14"
+            textColor="@theme/font/grey"
+            verticalAlign="center" />
+</brls:Box>

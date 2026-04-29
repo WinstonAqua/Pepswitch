@@ -38,9 +38,9 @@ void MainActivity::onContentAvailable() {
     
     if (!hasInternet) {
         brls::Logger::info("No internet connection detected, navigating to Downloads tab");
-        // Se non c'è internet, vai direttamente al tab Downloads (indice 2)
+        // Downloads tab moved from index 2 -> 3 after the Add-ons tab was inserted.
         if (this->tabFrame) {
-            this->tabFrame->focusTab(2); // Assumendo che Downloads sia il 3° tab (indice 2)
+            this->tabFrame->focusTab(3);
         }
     }
     this->registerAction(

@@ -1,0 +1,36 @@
+<brls:Box
+        axis="column"
+        marginTop="20"
+        marginBottom="8"
+        width="auto"
+        height="auto">
+
+    <brls:Box
+            wireframe="false"
+            width="auto"
+            paddingLeft="20"
+            paddingRight="20"
+            marginBottom="10">
+        <brls:Label
+                id="home/addons/title"
+                fontSize="22"
+                grow="1"
+                text="Add-ons" />
+        <brls:Label
+                id="home/addons/hint"
+                fontSize="16"
+                textColor="@theme/font/grey"
+                text="+ Add &nbsp;&nbsp; Y Refresh" />
+    </brls:Box>
+
+    <RecyclingGrid
+            paddingLeft="20"
+            paddingRight="20"
+            grow="1"
+            spanCount="1"
+            itemHeight="110"
+            wireframe="false"
+            preFetchLine="2"
+            id="home/addons/recyclingGrid" />
+
+</brls:Box>

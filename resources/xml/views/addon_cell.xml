@@ -1,0 +1,35 @@
+<brls:Box
+        wireframe="false"
+        highlightCornerRadius="8"
+        cornerRadius="8"
+        backgroundColor="@theme/color/grey_1"
+        padding="14"
+        width="auto"
+        height="auto"
+        axis="row">
+
+    <brls:Box
+            axis="column"
+            grow="1"
+            marginRight="20">
+        <brls:Label
+                id="addon/cell/name"
+                fontSize="20"
+                marginBottom="4" />
+        <brls:Label
+                id="addon/cell/url"
+                fontSize="14"
+                textColor="@theme/font/grey" />
+        <brls:Label
+                id="addon/cell/version"
+                fontSize="14"
+                textColor="@theme/font/grey"
+                marginTop="2" />
+    </brls:Box>
+
+    <brls:Label
+            id="addon/cell/status"
+            fontSize="16"
+            textColor="@theme/font/grey"
+            verticalAlign="center" />
+</brls:Box>

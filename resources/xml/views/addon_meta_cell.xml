@@ -1,0 +1,39 @@
+<brls:Box
+        id="addon/meta/box"
+        wireframe="false"
+        highlightCornerRadius="6"
+        cornerRadius="6"
+        axis="column"
+        width="auto"
+        height="auto">
+
+    <brls:Box
+            id="addon/meta/pic_box"
+            width="auto"
+            height="220"
+            cornerRadius="6"
+            backgroundColor="@theme/color/grey_2">
+        <brls:Image
+                id="addon/meta/picture"
+                scalingType="fill"
+                width="auto"
+                height="auto"
+                cornerRadius="6"
+                image="@res/pictures/video-card-bg.png" />
+    </brls:Box>
+
+    <TextBox
+            id="addon/meta/title"
+            fontSize="16"
+            maxRows="2"
+            marginTop="6"
+            marginLeft="4"
+            marginRight="4" />
+
+    <brls:Label
+            id="addon/meta/year"
+            fontSize="14"
+            marginLeft="4"
+            marginTop="2"
+            textColor="@theme/font/grey" />
+</brls:Box>
