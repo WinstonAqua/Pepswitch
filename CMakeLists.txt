@@ -29,21 +29,22 @@ option(DEBUG_SANITIZER "Turn on sanitizers (only available in debug build)" OFF)
 # Google Analytics
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/GoogleAnalytics.cmake)
 
-# Server URL
-option(SERVER_URL "URL del server" "")
+# Server URL (Pepswitch: optional; falls back to a placeholder so secret-free CI
+# builds succeed. The Stremio add-on flow does not depend on this server.)
+set(SERVER_URL "" CACHE STRING "URL del server")
 if (NOT DEFINED SERVER_URL OR "${SERVER_URL}" STREQUAL "")
-    message(FATAL_ERROR "SERVER_URL not defined")
-else()
-    list(APPEND APP_PLATFORM_OPTION -DSERVER_URL="${SERVER_URL}")
+    set(SERVER_URL "https://pepswitch.invalid")
+    message(STATUS "SERVER_URL not defined; using placeholder ${SERVER_URL}")
 endif()
+list(APPEND APP_PLATFORM_OPTION -DSERVER_URL="${SERVER_URL}")
 
-# Server Token
-option(SERVER_TOKEN "Token del server" "")
+# Server Token (Pepswitch: optional; placeholder for secret-free CI builds.)
+set(SERVER_TOKEN "" CACHE STRING "Token del server")
 if (NOT DEFINED SERVER_TOKEN OR "${SERVER_TOKEN}" STREQUAL "")
-    message(FATAL_ERROR "SERVER_TOKEN not defined")
-else()
-    list(APPEND APP_PLATFORM_OPTION -DSERVER_TOKEN="${SERVER_TOKEN}")
+    set(SERVER_TOKEN "pepswitch-placeholder")
+    message(STATUS "SERVER_TOKEN not defined; using placeholder value")
 endif()
+list(APPEND APP_PLATFORM_OPTION -DSERVER_TOKEN="${SERVER_TOKEN}")
 
 # Default M3U8 URL
 option(M3U8_URL "Default M3U8 URL" "")
