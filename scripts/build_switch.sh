@@ -25,25 +25,17 @@ for PKG in "${PKGS[@]}"; do
 done
 
 
-if [ -z "${GA_ID}" ] || [ -z "${GA_KEY}" ]; then
-    echo "GA_ID or GA_KEY not found in environment"
-    exit 1
+# Pepswitch: previously these were required. They are now optional so the build
+# works without secrets (CI fork builds, local builds). Analytics is disabled
+# unless GA_ID/GA_KEY are explicitly provided.
+ANALYTICS_FLAG="-DANALYTICS=OFF"
+if [ -n "${GA_ID}" ] && [ -n "${GA_KEY}" ]; then
+    ANALYTICS_FLAG="-DANALYTICS=ON -DANALYTICS_ID=${GA_ID} -DANALYTICS_KEY=${GA_KEY}"
 fi
 
-if [ -z "${SERVER_URL}" ]; then
-    echo "SERVER_URL not found in environment"
-    exit 1
-fi
-
-if [ -z "${SERVER_TOKEN}" ]; then
-    echo "SERVER_TOKEN not found in environment"
-    exit 1
-fi
-
-if [ -z "${M3U8_URL}" ]; then
-    echo "M3U8_URL not found in environment"
-    exit 1
-fi
+: "${SERVER_URL:=https://pepswitch.invalid}"
+: "${SERVER_TOKEN:=pepswitch-placeholder}"
+: "${M3U8_URL:=https://pepswitch.invalid/empty.m3u8}"
 
 # GITHUB_TOKEN is optional but pass it if available
 GITHUB_TOKEN_FLAG=""
@@ -64,11 +56,9 @@ cmake -B ${BUILD_DIR} \
   -DPLATFORM_SWITCH=ON \
   ${UNITY_BUILD_FLAG} \
   -DCMAKE_UNITY_BUILD_BATCH_SIZE=16 \
-  -DANALYTICS=ON \
-  -DANALYTICS_ID="${GA_ID}" \
-  -DANALYTICS_KEY="${GA_KEY}" \
+  ${ANALYTICS_FLAG} \
   -DSERVER_URL="${SERVER_URL}" \
-    -DSERVER_TOKEN="${SERVER_TOKEN}" \
+  -DSERVER_TOKEN="${SERVER_TOKEN}" \
   -DM3U8_URL="${M3U8_URL}" \
   ${GITHUB_TOKEN_FLAG} 
 

@@ -4,6 +4,7 @@
 #include "fragment/home_history.hpp"
 #include "fragment/home_favorites.hpp"
 #include "fragment/home_downloads.hpp"
+#include "fragment/home_addons.hpp"
 
 #include "utils/config_helper.hpp"
 
@@ -58,6 +59,7 @@ void Register::initCustomView() {
     brls::Application::registerXMLView("HomeHistory", HomeHistory::create);
     brls::Application::registerXMLView("HomeFavorites", HomeFavorites::create);
     brls::Application::registerXMLView("HomeDownloads", HomeDownloads::create);
+    brls::Application::registerXMLView("HomeAddons", HomeAddons::create);
 }
 
 void Register::initCustomTheme() {

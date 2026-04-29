@@ -31,6 +31,13 @@
 
             <Tab label=""
                  fontSize="18"
+                 icon="@res/svg/ico-addons.svg"
+                 iconActivate="@res/svg/ico-addons-activate.svg">
+                <HomeAddons/>
+            </Tab>
+
+            <Tab label=""
+                 fontSize="18"
                  icon="@res/svg/ico-downloads.svg"
                  iconActivate="@res/svg/ico-downloads-activate.svg">
                 <HomeDownloads/>
